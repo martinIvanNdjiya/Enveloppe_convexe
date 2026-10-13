@@ -7,6 +7,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#include<time.h>
+
+#define TAILLE  20   
 
 /*=========================================================*/
 /*                  LES CONSTANTES                         */
@@ -38,12 +41,19 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point * ref);
 void trier_pts(t_point tab_pts[], int taille);
 
 
-
 /*=========================================================*/
 /*=========================================================*/
 //Programme principal
 int main(void)
 {
+    t_point tab_pts[TAILLE], h_ref;  
+	int pos_pt_min;     
+
+    srand(time(NULL));    //initialise le générateur “rand()” 
+
+    init_tab_alea(tab_pts, TAILLE, 1400, 800);
+
+    trouver_pt_minimal(tab_pts, pos_pt_min);
 
 	// on termine avec le standard... "APPUYEZ UNE TOUCHE.."	
 	system("pause");
@@ -85,11 +95,25 @@ int alea(int min, int max){
 }
 
 void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy){
+    for (int i = 0; i < taille; i++) {
 
+    }
 }
 
-int  trouver_pt_minimal(const t_point tab_pts[], int taille){
+int trouver_pt_minimal(const t_point tab_pts[], int taille){
+    int j;
+    int indice = 0;            //prendre premiere valeur comme etant le min
 
+    for (j = 1; j < taille; j++)			 //pour toutes les autres valeurs
+        if (tab_pts[j].posy < tab_pts[indice].posy) 
+            indice = j;  
+
+        else if (tab_pts[j].posy == tab_pts[indice].posy) {
+            if (tab_pts[j].posx < tab_pts[indice].posx) {
+                indice = j;
+            }
+        }
+	return indice;
 }
 
 t_point placer_pt_reference(t_point tab_pts[], int pos_min){
