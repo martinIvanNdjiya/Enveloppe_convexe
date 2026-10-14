@@ -102,12 +102,15 @@ void trier_pts(t_point tab_pts[], int taille);
 
 int main(void)
 {
+    // Declaration de variables de type t_point
     t_point tab_pts[TAILLE], h_ref;  
+    // Declaration de la position du point minimal
 	int pos_pt_min;     
 
     srand(time(NULL));    //initialise le générateur “rand()” 
 
-    init_tab_alea(tab_pts, TAILLE, 1400, 800);
+    //Initialisation d'un tableau de points aleatoire avec init_tab_alea() de 
+    init_tab_alea(tab_pts, TAILLE, 1400, 800); // maxx: 1400, maxy: 800
 
     trouver_pt_minimal(tab_pts, pos_pt_min);
 
