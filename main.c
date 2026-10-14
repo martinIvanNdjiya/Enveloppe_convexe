@@ -90,6 +90,15 @@ void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy);
  */
 int trouver_pt_minimal(const t_point tab_pts[], int taille);
 
+/** PLACER_PT_REFERENCE
+* Permute le point minimal (situé à l'indice pos_min) avec le point à l'indice [0] du tableau.
+* Crée et retourne un nouveau point de référence horizontal dont la coordonnée posx est
+* identique à celle du nouveau point [0] et dont la coordonnée posy est fixée à 800.
+*
+* PARAMETRES: tab_pts[] ---> Le tableau de points à modifier (t_point [])
+*             pos_min    ---> L'indice du point minimal trouvé précédemment (int)
+* RETOUR    : Le point de référence horizontal créé (t_point)
+ */
 t_point placer_pt_reference(t_point tab_pts[], int pos_min);
 
 void calcul_coord_polaires(t_point tab_pts[], int taille, t_point * ref);
@@ -187,7 +196,7 @@ void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy) {
     }
 }
 
-/* TROUVER_PT_MINIMAL */
+/* TROUVER_PT_MINIMAL  A TESTER!! */
 int trouver_pt_minimal(const t_point tab_pts[], int taille){
     int j;
     int indice = 0;            //prendre premiere valeur comme etant le min
@@ -204,8 +213,19 @@ int trouver_pt_minimal(const t_point tab_pts[], int taille){
 	return indice;
 }
 
+/* PLACER_PT_REFERENCE A TESTER !*/
 t_point placer_pt_reference(t_point tab_pts[], int pos_min){
+    // Permuter le point minimal avec la case 0 du tableau
+    t_point temp = tab_pts[0];
+    tab_pts[0] = tab_pts[pos_min];
+    tab_pts[pos_min] = temp;
 
+    // Creer le point h_ref  (meme posx, posy = 800.0)
+    t_point h_ref;
+    h_ref.posx = tab_pts[0].posx;
+    h_ref.posy = 800.0; 
+
+    return h_ref;
 }
 
 void calcul_coord_polaires(t_point tab_pts[], int taille, t_point * ref){
