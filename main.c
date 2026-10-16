@@ -142,7 +142,7 @@ int main(void)
     //Initialisation d'un tableau de points aleatoire avec init_tab_alea() de 
     init_tab_alea(tab_pts, TAILLE, 1400, 800); // maxx: 1400, maxy: 800
 
-    trouver_pt_minimal(tab_pts, pos_pt_min);
+    trouver_pt_minimal(tab_pts, TAILLE);
 
     // Calcule des coordonnees polaire et triage avec trier_pts()
     // href et initialiser dans la fonction 
