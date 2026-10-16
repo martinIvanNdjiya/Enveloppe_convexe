@@ -113,6 +113,15 @@ t_point placer_pt_reference(t_point tab_pts[], int pos_min);
  */
 void calcul_coord_polaires(t_point tab_pts[], int taille, t_point * ref);
 
+/** TRIER_PTS
+* Trie les points du tableau en ordre croissant de leurs angles polaires (.rad),
+* en laissant obligatoirement le point minimal à la case [0].
+* En cas d'égalité d'angle, on place le point avec la plus courte distance (.dist) en premier.
+*
+* PARAMETRES: tab_pts[] ---> Le tableau de points à trier (t_point [])
+*             taille     ---> Le nombre d'éléments dans le tableau (int)
+* RETOUR    : Aucun (void)
+ */
 void trier_pts(t_point tab_pts[], int taille);
 
 
@@ -238,18 +247,6 @@ t_point placer_pt_reference(t_point tab_pts[], int pos_min){
     return h_ref;
 }
 
-void calcul_coord_polaires(t_point tab_pts[], int taille, t_point * ref){
-    double angle_polaire;
-    int i; // compteur
-
-    for (i = 1; i < taille; i++) {
-        tab_pts.rad
-
-    }
-        
-
-}
-
 /* CALCUL_COORD_POLAIRES A TESTER*/
 void calcul_coord_polaires(t_point tab_pts[], int taille, t_point* ref) {
     int i; // compteur
@@ -267,6 +264,31 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point* ref) {
     }
 }
 
-void trier_pts(t_point tab_pts[], int taille){
+/* TRIER_PTS A TESTER*/ 
+void trier_pts(t_point tab_pts[], int taille) {
+    int i, j;
+    t_point tampon;
 
+    //Crearion du point de ref horizontal (meme posx que le point minimal a [0], y = 800)
+    t_point h_ref;
+    h_ref.posx = tab_pts[0].posx;
+    h_ref.posy = 800; 
+
+    // Calcule des coordonnees polaires en passant l'adresse de h_ref
+    calcul_coord_polaires(tab_pts, taille, &h_ref);
+
+    // Trier les points 
+    for (i = 1; i < taille - 1; i++) {
+        for (j = 1; j < taille - i; j++) {
+
+            // Condition de permutation : angle plus grand OU angle egal mais distance plus grande
+            if ((tab_pts[j].rad > tab_pts[j + 1].rad) || (tab_pts[j].rad == tab_pts[j + 1].rad && tab_pts[j].dist > tab_pts[j + 1].dist)) {
+
+                // Permuter les deux points
+                tampon = tab_pts[j];
+                tab_pts[j] = tab_pts[j + 1];
+                tab_pts[j + 1] = tampon;
+            }
+        }
+    }
 }
