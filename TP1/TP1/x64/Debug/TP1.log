@@ -1,1 +1,68 @@
-﻿  TP1.vcxproj -> C:\Users\Judith\source\repos\Enveloppe_convexe\TP1\x64\Debug\TP1.exe
+﻿  affichage.cpp
+  ordonnerPoints.cpp
+  Tests_pile.cpp
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\ordonnerPoints.cpp(4,10): error C1083: Impossible d'ouvrir le fichier include : 'ordonnerPoints.h' : No such file or directory
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\Tests_pile.cpp(12,10): error C1083: Impossible d'ouvrir le fichier include : 't_pile.h' : No such file or directory
+  WINBGIM.cpp
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(478,13): error C2664: 'HFONT CreateFontW(int,int,int,int,int,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,LPCWSTR)' : impossible de convertir l'argument 14 de 'char *' en 'LPCWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(481,42):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\um\wingdi.h(3905,26):
+      voir la déclaration de 'CreateFontW'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(478,13):
+      lors de la tentative de mise en correspondance de la liste des arguments '(int, int, int, int, int, int, int, int, int, int, int, int, int, char *)'
+  
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(563,5): error C2664: 'DWORD FormatMessageW(DWORD,LPCVOID,DWORD,DWORD,LPWSTR,DWORD,va_list *)' : impossible de convertir l'argument 5 de 'char [256]' en 'LPWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(564,5):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\um\winbase.h(2505,1):
+      voir la déclaration de 'FormatMessageW'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(563,5):
+      lors de la tentative de mise en correspondance de la liste des arguments '(int, int, int, int, char [256], size_t, int)'
+  
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1008,6): error C2664: 'BOOL TextOutW(HDC,int,int,LPCWSTR,int)' : impossible de convertir l'argument 4 de 'const char *' en 'LPCWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1008,28):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\um\wingdi.h(5225,25):
+      voir la déclaration de 'TextOutW'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1008,6):
+      lors de la tentative de mise en correspondance de la liste des arguments '(HDC, int, int, const char *, size_t)'
+  
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1011,9): error C2664: 'BOOL TextOutW(HDC,int,int,LPCWSTR,int)' : impossible de convertir l'argument 4 de 'const char *' en 'LPCWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1011,31):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\um\wingdi.h(5225,25):
+      voir la déclaration de 'TextOutW'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1011,9):
+      lors de la tentative de mise en correspondance de la liste des arguments '(HDC, int, int, const char *, size_t)'
+  
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1041,5): error C2664: 'BOOL GetTextExtentPoint32W(HDC,LPCWSTR,int,LPSIZE)' : impossible de convertir l'argument 2 de 'const char *' en 'LPCWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1041,34):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\um\wingdi.h(4343,1):
+      voir la déclaration de 'GetTextExtentPoint32W'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1041,5):
+      lors de la tentative de mise en correspondance de la liste des arguments '(HDC, const char *, size_t, SIZE *)'
+  
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1050,5): error C2664: 'BOOL GetTextExtentPoint32W(HDC,LPCWSTR,int,LPSIZE)' : impossible de convertir l'argument 2 de 'const char *' en 'LPCWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1050,34):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\um\wingdi.h(4343,1):
+      voir la déclaration de 'GetTextExtentPoint32W'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1050,5):
+      lors de la tentative de mise en correspondance de la liste des arguments '(HDC, const char *, size_t, SIZE *)'
+  
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(1948,31): warning C4244: 'argument' : conversion de 'TCHAR' en 'char', perte possible de données
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(2288,39): error C2440: '=' : impossible de convertir de 'char *' en 'LPCWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(2288,39):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+  
+C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(2381,12): error C2664: 'HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)' : impossible de convertir l'argument 2 de 'const char [11]' en 'LPCWSTR'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(2381,12):
+      Les types pointés ne sont pas liés ; la conversion nécessite un reinterpret_cast, un cast de style C ou un cast de style fonction entre parenthèses.
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\um\winuser.h(4446,1):
+      voir la déclaration de 'CreateWindowExW'
+      C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\WINBGIM.cpp(2381,12):
+      lors de la tentative de mise en correspondance de la liste des arguments '(long, const char [11], const char [25], long, int, int, int, int, HWND, HMENU, int, int)'
+  
+  Génération de code en cours...

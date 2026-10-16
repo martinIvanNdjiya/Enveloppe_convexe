@@ -139,11 +139,16 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\main.c" />
+    <ClInclude Include="..\..\affichage.h" />
+    <ClInclude Include="..\..\ordonnerPoints.h" />
+    <ClInclude Include="..\..\WINBGIM.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\affichage.h" />
-    <ClInclude Include="..\..\WINBGIM.h" />
+    <ClCompile Include="..\..\affichage.cpp" />
+    <ClCompile Include="..\..\ordonnerPoints.c" />
+    <ClCompile Include="..\..\ordonnerPoints.cpp" />
+    <ClCompile Include="..\..\Tests_pile.cpp" />
+    <ClCompile Include="..\..\WINBGIM.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
