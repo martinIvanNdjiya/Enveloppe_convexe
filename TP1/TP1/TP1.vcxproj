@@ -145,7 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\affichage.cpp" />
-    <ClCompile Include="..\..\ordonnerPoints.c" />
+    <ClCompile Include="..\..\main.c" />
     <ClCompile Include="..\..\ordonnerPoints.cpp" />
     <ClCompile Include="..\..\Tests_pile.cpp" />
     <ClCompile Include="..\..\WINBGIM.cpp" />

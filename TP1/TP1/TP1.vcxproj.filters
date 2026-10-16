@@ -29,7 +29,7 @@
     <ClCompile Include="..\..\affichage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ordonnerPoints.c">
+    <ClCompile Include="..\..\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ordonnerPoints.cpp">
