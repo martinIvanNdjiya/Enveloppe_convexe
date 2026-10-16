@@ -21,6 +21,8 @@ typedef struct {
 	int position;     //position-tableau du point suite au tri
 } t_point;
 
+#define TAILLE  20   
+
 /*=========================================================*/
 /*============== DECLARATION DES FONCTIONS ================*/
 
@@ -141,6 +143,10 @@ int main(void)
     init_tab_alea(tab_pts, TAILLE, 1400, 800); // maxx: 1400, maxy: 800
 
     trouver_pt_minimal(tab_pts, pos_pt_min);
+
+    // Calcule des coordonnees polaire et triage avec trier_pts()
+    // href et initialiser dans la fonction 
+    trier_pts(tab_pts, TAILLE);
 
 	// on termine avec le standard... "APPUYEZ UNE TOUCHE.."	
 	system("pause");
