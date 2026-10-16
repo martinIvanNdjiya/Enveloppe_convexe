@@ -20,11 +20,11 @@ int main(void)
 
     trouver_pt_minimal(tab_pts, TAILLE);
 
+    calcul_coord_polaires(tab_pts, TAILLE, &h_ref);
+
     // Calcule des coordonnees polaire et triage avec trier_pts()
     // href et initialiser dans la fonction 
     trier_pts(tab_pts, TAILLE);
 
-	// on termine avec le standard... "APPUYEZ UNE TOUCHE.."	
-	system("pause");
-	return EXIT_SUCCESS;     //retour obligatoire si le "main()" est de type "int"
+	return 0;    
 }
