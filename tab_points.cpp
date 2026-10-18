@@ -1,32 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #define _USE_MATH_DEFINES
 #include <stdio.h>
-#include <ordonnerPoints.h>
-
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include "tab_points.h"
 
 /*=========================================================*/
 /*================ PROGRAMME PRINCIPAL ====================*/
 int main(void)
 {
-    // Declaration de variables de type t_point
-    t_point tab_pts[TAILLE], h_ref;  
-    // Declaration de la position du point minimal
-	int pos_pt_min;     
+    t_point tab_pts[TAILLE], h_ref;
+    int pos_pt_min;
 
-    srand(time(NULL));    //initialise le générateur “rand()” 
+    srand((unsigned int)time(NULL));
 
-    //Initialisation d'un tableau de points aleatoire avec init_tab_alea() de 
-    init_tab_alea(tab_pts, TAILLE, 1400, 800); // maxx: 1400, maxy: 800
+    init_tab_alea(tab_pts, TAILLE, 1400, 800);
 
-    trouver_pt_minimal(tab_pts, TAILLE);
+    pos_pt_min = trouver_pt_minimal(tab_pts, TAILLE);
+    h_ref = placer_pt_reference(tab_pts, pos_pt_min);
 
     calcul_coord_polaires(tab_pts, TAILLE, &h_ref);
-
-    // Calcule des coordonnees polaire et triage avec trier_pts()
-    // href et initialiser dans la fonction 
+    // trier_pts() recalcule les coordonnées polaires;
+    // garde un seul des deux appels
     trier_pts(tab_pts, TAILLE);
 
-	return 0;    
+    return 0;
 }
 
 /*=========================================================*/

@@ -20,8 +20,6 @@ typedef struct {
 	int position;     //position-tableau du point suite au tri
 } t_point;
 
-#define TAILLE  20   
-
 /*=========================================================*/
 /*============== DECLARATION DES FONCTIONS ================*/
 
