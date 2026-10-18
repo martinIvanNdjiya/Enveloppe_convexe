@@ -13,7 +13,7 @@ int main(void)
     t_point tab_pts[TAILLE], h_ref;
     int pos_pt_min;
 
-    srand((unsigned int)time(NULL));
+    srand(time(NULL));
 
     init_tab_alea(tab_pts, TAILLE, 1400, 800);
 
