@@ -9,6 +9,24 @@
 
 /*=========================================================*/
 /*=================== FONCTIONS ===========================*/
+
+/* SWAP */
+void swap(t_point* a, t_point* b) {
+    t_point tampon = *a;
+    *a = *b;
+    *b = tampon;
+}
+
+/* VERIFIER_DOUBLONS */
+int verifier_doublons(const t_point tab_pts[], int taille_actuelle, int y_aleatoire) {
+    int j;
+    for (j = 0; j < taille_actuelle; j++) {
+        if (tab_pts[j].posy == y_aleatoire) {
+            return 0; // Trouvé un doublon (pas unique)
+        }
+    }
+    return 1; // Aucun doublon, le y est unique
+}
 /* DISTANCE */
 double distance(t_point * pA, t_point * pB){
     double diffx = pB->posx - pA->posx;
@@ -41,7 +59,8 @@ double coord_polaire(t_point * pA, t_point * pB, t_point * h_ref){
     }
 }
 
-/* ALEA */
+/* ALEA */ 
+// RENDRE STATIC
 int alea(int min, int max){    
     //retourne un entier aléatoire dans [min, max]
 	return (rand() % (max - min + 1) + min);
@@ -49,35 +68,22 @@ int alea(int min, int max){
 
 /* INIT_TAB_ALEA */
 void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy) {
-    int i, j; //compteurs
-    int unique; // Int derterminant si la posy est unique 1 ou non 0
-    int y_aleatoire; // y aleatoire 
+    int i;
+    int y_aleatoire;
 
     for (i = 0; i < taille; i++) {
         tab_pts[i].posx = alea(1, maxx);
 
-        // Avoir une posy unique dans le tableau
+        // Répéter la génération tant que le y n'est pas unique
         do {
-            // Generation d'un y aleatoire avec alea()
             y_aleatoire = alea(1, maxy);
-
-            // On supposee que le y est unique
-            unique = 1;
-
-            // Verification des doublons //Faire une focntion verifierDoublons
-            for (j = 0; j < i; j++) {
-                if (tab_pts[j].posy == y_aleatoire) {
-                    unique = 0; // Trouve un doublon donc ce n'est pas unique
-                    break;
-                }
-            }
-        } while (unique == 0);
+        } while (verifier_doublons(tab_pts, i, y_aleatoire) == 0);
 
         tab_pts[i].posy = y_aleatoire;
     }
 }
 
-/* TROUVER_PT_MINIMAL  A TESTER!! */
+/* TROUVER_PT_MINIMAL */
 int trouver_pt_minimal(const t_point tab_pts[], int taille){
     int i; //compteur
     int indice = 0;            //prendre premiere valeur comme etant le min
@@ -94,16 +100,13 @@ int trouver_pt_minimal(const t_point tab_pts[], int taille){
 	return indice;
 }
 
-/* PLACER_PT_REFERENCE A TESTER !*/
+/* PLACER_PT_REFERENCE */
 t_point placer_pt_reference(t_point tab_pts[], int pos_min){
     tab_pts[0].rad = 0; //Initialisation de l'angle radian
     tab_pts[0].dist = 0; //Initialisation de la distance
 
-    // Permuter le point minimal avec la case 0 du tableau (Faire une focntion swap)
-    t_point temp = tab_pts[0];
-    tab_pts[0] = tab_pts[pos_min];
-    tab_pts[pos_min] = temp;
-    
+    // Permuter le point minimal avec la case 0 du tableau 
+    swap(&tab_pts[0], &tab_pts[pos_min]);    
 
     // Creer le point h_ref  (meme posx, posy = 800)
     t_point h_ref;
@@ -130,7 +133,7 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point* ref) {
     }
 }
 
-/* TRIER_PTS A TESTER*/ 
+/* TRIER_PTS */ 
 void trier_pts(t_point tab_pts[], int taille)
 {
     int i, j, indice;
@@ -154,10 +157,7 @@ void trier_pts(t_point tab_pts[], int taille)
         // Permuter une seule fois, après avoir trouvé le min.
         if (indice != i)
         {
-            // Faire une fonction swap
-            tampon = tab_pts[i];
-            tab_pts[i] = tab_pts[indice];
-            tab_pts[indice] = tampon;
+            swap(&tab_pts[i], &tab_pts[indice]);
         }
     }
 }
