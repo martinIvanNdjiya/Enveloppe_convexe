@@ -17,6 +17,16 @@ void swap(t_point* a, t_point* b) {
     *b = tampon;
 }
 
+/* VERIFIER_DOUBLONS */
+int verifier_doublons(const t_point tab_pts[], int taille_actuelle, int y_aleatoire) {
+    int j;
+    for (j = 0; j < taille_actuelle; j++) {
+        if (tab_pts[j].posy == y_aleatoire) {
+            return 0; // Trouvé un doublon (pas unique)
+        }
+    }
+    return 1; // Aucun doublon, le y est unique
+}
 /* DISTANCE */
 double distance(t_point * pA, t_point * pB){
     double diffx = pB->posx - pA->posx;
@@ -58,29 +68,16 @@ int alea(int min, int max){
 
 /* INIT_TAB_ALEA */
 void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy) {
-    int i, j; //compteurs
-    int unique; // Int derterminant si la posy est unique 1 ou non 0
-    int y_aleatoire; // y aleatoire 
+    int i;
+    int y_aleatoire;
 
     for (i = 0; i < taille; i++) {
         tab_pts[i].posx = alea(1, maxx);
 
-        // Avoir une posy unique dans le tableau
+        // Répéter la génération tant que le y n'est pas unique
         do {
-            // Generation d'un y aleatoire avec alea()
             y_aleatoire = alea(1, maxy);
-
-            // On supposee que le y est unique
-            unique = 1;
-
-            // Verification des doublons //Faire une focntion verifierDoublons
-            for (j = 0; j < i; j++) {
-                if (tab_pts[j].posy == y_aleatoire) {
-                    unique = 0; // Trouve un doublon donc ce n'est pas unique
-                    break;
-                }
-            }
-        } while (unique == 0);
+        } while (verifier_doublons(tab_pts, i, y_aleatoire) == 0);
 
         tab_pts[i].posy = y_aleatoire;
     }

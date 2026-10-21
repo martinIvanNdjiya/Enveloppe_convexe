@@ -29,6 +29,25 @@ typedef struct {
 /*=========================================================*/
 /*============== DECLARATION DES FONCTIONS ================*/
 
+/** SWAP
+* Échange la position de deux points dans le tableau.
+*
+* PARAMETRES: a ---> Pointeur vers le premier point (t_point *)
+*             b ---> Pointeur vers le deuxième point (t_point *)
+* RETOUR    : Aucun (void)
+ */
+void swap(t_point* a, t_point* b);
+
+/** VERIFIER_DOUBLONS
+* Vérifie si une coordonnée posy existe déjà dans le tableau de points.
+*
+* PARAMETRES: tab_pts[]       ---> Le tableau de points (const t_point [])
+*             taille_actuelle ---> Le nombre de points déjà initialisés (int)
+*             y_aleatoire     ---> La valeur de y à tester (int)
+* RETOUR    : 0 si un doublon est trouvé (non unique), 1 si elle est unique (int)
+ */
+int verifier_doublons(const t_point tab_pts[], int taille_actuelle, int y_aleatoire);
+
 /** DISTANCE
 * Calcule et retourne la distance Euclidienne entre les points pA et pB
 * en deux dimensions, pour deux points A(x1, y1) et B(x2, y2).
