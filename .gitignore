@@ -8,3 +8,9 @@ Release/
 *.ilk
 *.pdb
 *.log
+# Fichiers de projet et de solution Visual Studio
+*.sln
+*.slnx
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
