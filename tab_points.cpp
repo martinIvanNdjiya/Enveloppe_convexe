@@ -5,12 +5,15 @@
 #include <time.h>
 #include <math.h>
 #include "tab_points.h"
+#include "affichage.h"
 
 /*=========================================================*/
 /*=================== FONCTIONS ===========================*/
 /* DISTANCE */
 double distance(t_point * pA, t_point * pB){
-    return sqrt (pow(pB->posx-pA->posx, 2) + pow(pB->posy - pA->posy, 2));
+    double diffx = pB->posx - pA->posx;
+    double diffy = pB->posy - pA->posy;
+    return sqrt (diffx *  diffx) + (diffy * diffy);
 }
 
 /* PROD_VECTORIEL */
@@ -61,7 +64,7 @@ void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy) {
             // On supposee que le y est unique
             unique = 1;
 
-            // Verification des doublons
+            // Verification des doublons //Faire une focntion verifierDoublons
             for (j = 0; j < i; j++) {
                 if (tab_pts[j].posy == y_aleatoire) {
                     unique = 0; // Trouve un doublon donc ce n'est pas unique
@@ -83,25 +86,29 @@ int trouver_pt_minimal(const t_point tab_pts[], int taille){
         if (tab_pts[i].posy < tab_pts[indice].posy) 
             indice = i;  
 
-        else if (tab_pts[i].posy == tab_pts[indice].posy) {
-            if (tab_pts[i].posx < tab_pts[indice].posx) {
+        else if (tab_pts[i].posy == tab_pts[indice].posy &&
+                 tab_pts[i].posx < tab_pts[indice].posx) {
                 indice = i;
             }
-        }
+   
 	return indice;
 }
 
 /* PLACER_PT_REFERENCE A TESTER !*/
 t_point placer_pt_reference(t_point tab_pts[], int pos_min){
-    // Permuter le point minimal avec la case 0 du tableau
+    tab_pts[0].rad = 0; //Initialisation de l'angle radian
+    tab_pts[0].dist = 0; //Initialisation de la distance
+
+    // Permuter le point minimal avec la case 0 du tableau (Faire une focntion swap)
     t_point temp = tab_pts[0];
     tab_pts[0] = tab_pts[pos_min];
     tab_pts[pos_min] = temp;
+    
 
     // Creer le point h_ref  (meme posx, posy = 800)
     t_point h_ref;
     h_ref.posx = tab_pts[0].posx;
-    h_ref.posy = 800; 
+    h_ref.posy = MAX_Y;     
 
     return h_ref;
 }
@@ -124,30 +131,33 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point* ref) {
 }
 
 /* TRIER_PTS A TESTER*/ 
-void trier_pts(t_point tab_pts[], int taille) {
-    int i, j;
+void trier_pts(t_point tab_pts[], int taille)
+{
+    int i, j, indice;
     t_point tampon;
 
-    //Crearion du point de ref horizontal (meme posx que le point minimal a [0], y = 800)
-    t_point h_ref;
-    h_ref.posx = tab_pts[0].posx;
-    h_ref.posy = 800; 
+    // On commence à 1 : le point en [0] reste à sa place
+    for (i = 1; i < taille - 1; i++)
+    {
+        indice = i; // position du min. courant
 
-    // Calcule des coordonnees polaires en passant l'adresse de h_ref
-    calcul_coord_polaires(tab_pts, taille, &h_ref);
-
-    // Trier les points 
-    for (i = 1; i < taille - 1; i++) {
-        for (j = 1; j < taille - i; j++) {
-
-            // Condition de permutation : angle plus grand OU angle egal mais distance plus grande
-            if ((tab_pts[j].rad > tab_pts[j + 1].rad) || (tab_pts[j].rad == tab_pts[j + 1].rad && tab_pts[j].dist > tab_pts[j + 1].dist)) {
-
-                // Permuter les deux points
-                tampon = tab_pts[j];
-                tab_pts[j] = tab_pts[j + 1];
-                tab_pts[j + 1] = tampon;
+        for (j = i + 1; j < taille; j++)
+        {
+            if (tab_pts[j].rad < tab_pts[indice].rad ||
+                (tab_pts[j].rad == tab_pts[indice].rad &&
+                    tab_pts[j].dist < tab_pts[indice].dist))
+            {
+                indice = j;
             }
+        }
+
+        // Permuter une seule fois, après avoir trouvé le min.
+        if (indice != i)
+        {
+            // Faire une fonction swap
+            tampon = tab_pts[i];
+            tab_pts[i] = tab_pts[indice];
+            tab_pts[indice] = tampon;
         }
     }
 }
