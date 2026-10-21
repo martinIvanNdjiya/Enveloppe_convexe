@@ -42,13 +42,3 @@ void afficher_pts_en_ordre(t_point tab_pts[], int taille) {
         dessiner_lig(tab_pts[0].posx, tab_pts[0].posy, tab_pts[i].posx, tab_pts[i].posy);
     }
 }
-
-
-t_pile init_pile(int taille) {
-
-}
-void liberer_pile(t_pile* pile) {
-
-}
-int get_sommet(const t_pile* pile, t_element* elem);
-int get_suiv_sommet(const t_pile* pile, t_element* elem);
