@@ -1,4 +1,5 @@
 #include "tab_points.h"
+#include "affichage.h"
 #include <assert.h>
 
 #define TAILLE  20   //dans le main()
@@ -15,7 +16,7 @@ int main(void)
 
     srand(time(NULL));
 
-    init_tab_alea(tab_pts, TAILLE, 1400, 800);
+    init_tab_alea(tab_pts, TAILLE, MAX_X, MAX_Y);
 
     pos_pt_min = trouver_pt_minimal(tab_pts, TAILLE);
     h_ref = placer_pt_reference(tab_pts, pos_pt_min);
@@ -25,7 +26,15 @@ int main(void)
     // garde un seul des deux appels
     trier_pts(tab_pts, TAILLE);
 
+    void afficher_pts_en_ordre(t_point tab_pts[], TAILLE);
+
     free(tab_pts);
 
     return 0;
+}
+
+void afficher_pts_en_ordre(t_point tab_pts[], int taille) {
+    for (int i = 0; i < taille; i++) {
+
+    }
 }

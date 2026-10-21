@@ -139,7 +139,9 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\affichage.h" />
     <ClInclude Include="..\tab_points.h" />
+    <ClInclude Include="..\WINBGIM.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main_TP1.cpp" />
