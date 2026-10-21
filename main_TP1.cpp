@@ -25,16 +25,30 @@ int main(void)
     // trier_pts() recalcule les coordonnées polaires;
     // garde un seul des deux appels
     trier_pts(tab_pts, TAILLE);
-
-    void afficher_pts_en_ordre(t_point tab_pts[], TAILLE);
+    mode_graphique();
+    afficher_pts_en_ordre(tab_pts, TAILLE);
+    fermer_mode_graph();
 
     free(tab_pts);
 
     return 0;
 }
 
+//
 void afficher_pts_en_ordre(t_point tab_pts[], int taille) {
     for (int i = 0; i < taille; i++) {
-
+        tab_pts[i].position = i;
+        dessiner_pt(tab_pts[i].posx, tab_pts[i].posy, tab_pts[i].position);
+        dessiner_lig(tab_pts[0].posx, tab_pts[0].posy, tab_pts[i].posx, tab_pts[i].posy);
     }
 }
+
+
+t_pile init_pile(int taille) {
+
+}
+void liberer_pile(t_pile* pile) {
+
+}
+int get_sommet(const t_pile* pile, t_element* elem);
+int get_suiv_sommet(const t_pile* pile, t_element* elem);
