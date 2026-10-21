@@ -1,7 +1,7 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\judith\\source\\repos\\enveloppe_convexe\\winbgim.cpp",
+        "Source": "c:\\users\\judith\\desktop\\ecole\\ets\\aut2026\\inf147\\tp1\\winbgim.cpp",
         "ProvidedModule": "",
         "Includes": [
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\windows.h",
@@ -341,7 +341,7 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\locale.h",
             "c:\\program files\\microsoft visual studio\\18\\enterprise\\vc\\tools\\msvc\\14.51.36231\\include\\ostream",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\math.h",
-            "c:\\users\\judith\\source\\repos\\enveloppe_convexe\\winbgim.h",
+            "c:\\users\\judith\\desktop\\ecole\\ets\\aut2026\\inf147\\tp1\\winbgim.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\conio.h"
         ],
         "ImportedModules": [],

@@ -1,2 +1,3 @@
 ﻿  tab_points.cpp
-  TP1.vcxproj -> C:\Users\Home\OneDrive - ETS\INF147\TP1\TP1_Martin&Judith\TP1\x64\Debug\TP1.exe
+C:\Users\Judith\Desktop\ecole\ETS\AUT2026\INF147\TP1\tab_points.cpp(16,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  TP1.vcxproj -> C:\Users\Judith\Desktop\ecole\ETS\AUT2026\INF147\TP1\TP1\x64\Debug\TP1.exe

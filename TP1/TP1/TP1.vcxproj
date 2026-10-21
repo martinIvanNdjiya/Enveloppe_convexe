@@ -139,10 +139,13 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\affichage.h" />
     <ClInclude Include="..\..\tab_points.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\affichage.cpp" />
     <ClCompile Include="..\..\tab_points.cpp" />
+    <ClCompile Include="..\..\WINBGIM.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

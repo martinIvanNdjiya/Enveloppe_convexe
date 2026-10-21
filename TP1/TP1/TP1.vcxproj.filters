@@ -18,9 +18,18 @@
     <ClInclude Include="..\..\tab_points.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\affichage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\tab_points.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WINBGIM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\affichage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
