@@ -8,8 +8,6 @@
 #include<math.h>
 #include<time.h>
 
-#define TAILLE  20   
-
 /*=========================================================*/
 /*                  LES CONSTANTES                         */
 /*=========================================================*/
@@ -63,7 +61,7 @@ double coord_polaire(t_point * pA, t_point * pB, t_point * h_ref);
 *             max ---> La valeur maximale de l'intervalle (int)
 * RETOUR    : Un entier aléatoire entre min et max inclus (int)
  */
-int alea(int min, int max);
+static int alea(int min, int max);   //privée!!
 
 /** INIT_TAB_ALEA
 * Initialise tous les points du tableau avec des coordonnées aléatoires
