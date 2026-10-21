@@ -9,6 +9,14 @@
 
 /*=========================================================*/
 /*=================== FONCTIONS ===========================*/
+
+/* SWAP */
+void swap(t_point* a, t_point* b) {
+    t_point tampon = *a;
+    *a = *b;
+    *b = tampon;
+}
+
 /* DISTANCE */
 double distance(t_point * pA, t_point * pB){
     double diffx = pB->posx - pA->posx;
@@ -41,7 +49,8 @@ double coord_polaire(t_point * pA, t_point * pB, t_point * h_ref){
     }
 }
 
-/* ALEA */
+/* ALEA */ 
+// RENDRE STATIC
 int alea(int min, int max){    
     //retourne un entier aléatoire dans [min, max]
 	return (rand() % (max - min + 1) + min);
@@ -77,7 +86,7 @@ void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy) {
     }
 }
 
-/* TROUVER_PT_MINIMAL  A TESTER!! */
+/* TROUVER_PT_MINIMAL */
 int trouver_pt_minimal(const t_point tab_pts[], int taille){
     int i; //compteur
     int indice = 0;            //prendre premiere valeur comme etant le min
@@ -94,16 +103,13 @@ int trouver_pt_minimal(const t_point tab_pts[], int taille){
 	return indice;
 }
 
-/* PLACER_PT_REFERENCE A TESTER !*/
+/* PLACER_PT_REFERENCE */
 t_point placer_pt_reference(t_point tab_pts[], int pos_min){
     tab_pts[0].rad = 0; //Initialisation de l'angle radian
     tab_pts[0].dist = 0; //Initialisation de la distance
 
-    // Permuter le point minimal avec la case 0 du tableau (Faire une focntion swap)
-    t_point temp = tab_pts[0];
-    tab_pts[0] = tab_pts[pos_min];
-    tab_pts[pos_min] = temp;
-    
+    // Permuter le point minimal avec la case 0 du tableau 
+    swap(&tab_pts[0], &tab_pts[pos_min]);    
 
     // Creer le point h_ref  (meme posx, posy = 800)
     t_point h_ref;
@@ -130,7 +136,7 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point* ref) {
     }
 }
 
-/* TRIER_PTS A TESTER*/ 
+/* TRIER_PTS */ 
 void trier_pts(t_point tab_pts[], int taille)
 {
     int i, j, indice;
@@ -154,10 +160,7 @@ void trier_pts(t_point tab_pts[], int taille)
         // Permuter une seule fois, après avoir trouvé le min.
         if (indice != i)
         {
-            // Faire une fonction swap
-            tampon = tab_pts[i];
-            tab_pts[i] = tab_pts[indice];
-            tab_pts[indice] = tampon;
+            swap(&tab_pts[i], &tab_pts[indice]);
         }
     }
 }
