@@ -14,7 +14,7 @@
 typedef t_point t_element;
 
 typedef struct {
-   t_element * items;	  //tableau dynamique des éléments de la pile
+   t_element * items;	//tableau dynamique des éléments de la pile
    int sommet;			  //position du sommet (top) de la pile, sera == -1 lorsque vide 
 	int taille;			  //taille maximale du tableau dynamique des éléments
 } t_pile;
@@ -37,6 +37,9 @@ void push(t_pile *, t_element);
 
 //proc�dure pour enlever un �l�ment du haut d'une pile
 void pop(t_pile *, t_element *);
+
+//focntion pour récupérer le nb d'éléments
+int get_nb_element(const t_pile * pile);
 
 //fonction pour récupérer le sommet
 int get_sommet(const t_pile * pile, t_element * elem);
