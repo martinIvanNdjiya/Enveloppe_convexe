@@ -142,12 +142,14 @@
     <ClInclude Include="..\affichage.h" />
     <ClInclude Include="..\tab_points.h" />
     <ClInclude Include="..\WINBGIM.h" />
+    <ClInclude Include="interactions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\affichage.cpp" />
     <ClCompile Include="..\main_TP1.cpp" />
     <ClCompile Include="..\tab_points.cpp" />
     <ClCompile Include="..\WINBGIM.cpp" />
+    <ClCompile Include="interactions.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

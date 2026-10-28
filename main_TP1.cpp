@@ -1,6 +1,8 @@
 #include "tab_points.h"
 #include "affichage.h"
 #include "PILESLIB.H"
+#include "interections.h"
+//#include "interaction.h" a ajouter
 
 #include <windows.h>
 #include <assert.h>
@@ -8,29 +10,53 @@
 
 #define TAILLE  20   //dans le main()
 
+//protoypes
+void afficher_pts_en_ordre(t_point tab_pts[], int taille);
+
+int algo_Graham_scan(t_point tab_pts[], int nb_pts, t_pile* pile_Graham);
+
+void afficher_segments(t_pile* pile_Graham);
+
 /*================ PROGRAMME PRINCIPAL ====================*/ 
 int main(void)
 {
     t_point* tab_pts = NULL;
-    tab_pts = (t_point*)malloc(TAILLE * sizeof(t_point));
     t_point h_ref;
+    int nb_pts = 0;
 
+    
     assert(tab_pts != NULL);
     int pos_pt_min;
 
+    int mode;
+    mode = demander_mode();
+
+    // Mode aleatoire
+    if (mode == 1){
+        nb_pts = TAILLE;
+        tab_pts = (t_point*)malloc(nb_pts * sizeof(t_point));
+        //assert
+        init_tab_alea(tab_pts, nb_pts, MAX_X, MAX_Y);        
+    }
+    // Mode fichier .txt
+    else {
+        FILE* fichier = choisir_fichier();
+        
+        tab_pts = lire_points(fichier, &nb_pts);
+        assert(tab_pts != NULL);
+    }
+
     srand(time(NULL));
 
-    init_tab_alea(tab_pts, TAILLE, MAX_X, MAX_Y);
-
-    pos_pt_min = trouver_pt_minimal(tab_pts, TAILLE);
+    pos_pt_min = trouver_pt_minimal(tab_pts, nb_pts);
     h_ref = placer_pt_reference(tab_pts, pos_pt_min);
 
-    calcul_coord_polaires(tab_pts, TAILLE, &h_ref);
+    calcul_coord_polaires(tab_pts, nb_pts, &h_ref);
     // trier_pts() recalcule les coordonnées polaires;
     // garde un seul des deux appels
-    trier_pts(tab_pts, TAILLE);
+    trier_pts(tab_pts, nb_pts);
     mode_graphique();
-    afficher_pts_en_ordre(tab_pts, TAILLE);
+    afficher_pts_en_ordre(tab_pts, nb_pts);
     fermer_mode_graph();
 
     free(tab_pts);
@@ -93,18 +119,18 @@ void afficher_segments(t_pile *pile_Graham) {
     t_point p0;
     t_point p1;
     t_point pt_fin;
-    printf("d\n", get_nb_elements(pile_Graham));
+    printf("%d\n", get_nb_elements(pile_Graham));
 
     pop(pile_Graham, &pt_fin);
-    printf("d\n", pt_fin);
+    printf("%d\n", pt_fin);
 
     while (vide(pile_Graham)){
         pop(pile_Graham, &p1);
         dessiner_lig(p0.posx, p0.posy, p1.posx, p1.posy);
-        printf("d\n", p1);
+        printf("%d\n", p1);
         swap(&p1, &p0);
     }
 
     dessiner_lig(p0.posx, p0.posy, pt_fin.posx, pt_fin.posy);
-    printf("d\n", pt_fin);
+    printf("%d\n", pt_fin);
 }

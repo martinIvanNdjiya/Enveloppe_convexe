@@ -29,7 +29,7 @@ typedef struct {
 /*=========================================================*/
 /*============== DECLARATION DES FONCTIONS ================*/
 
-/** SWAP
+/** SWAP 
 * Échange la position de deux points dans le tableau.
 *
 * PARAMETRES: a ---> Pointeur vers le premier point (t_point *)
@@ -147,24 +147,3 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point * ref);
 * RETOUR    : Aucun (void)
  */
 void trier_pts(t_point tab_pts[], int taille);
-
-/** DEMANDER_MODE
-* On affiche un menu qui propose les deux choix de modes d’exécution; 
-*	1) mode aléatoire à 20 points, 
-*	2) mode à partir d’un fichier-texte. 
-*
-* Le choix de l’utilisateur doit être validé.  
-* PARAMETRES: AUCUN (void)
-* *
-* RETOUR	: 1 (mode aleatoire) ou 2 (mode fichier-texte). 
-*/
-int demander_mode(void);
-
-/** CHOISIR_FICHEIR 
-* Permet de sélectionner un des fichiers .txt de points disponibles.
-* On demande et on saisit le nom d’un fichier .txt.
-* On tente ensuite d’ouvrir ce fichier en mode lecture.
-* PARAMETRES: Aucun (void)
-* RETOUR    : Le pointeur d'accès au fichier choisi (FILE *)
-*/
-FILE* choisir_fichier(void); 
