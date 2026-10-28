@@ -38,10 +38,10 @@ double distance(t_point * pA, t_point * pB){
 
 /* PROD_VECTORIEL */
 double prod_vectoriel(t_point * p0, t_point * p1, t_point * p2){
-    double a = p1->posx - p0->posx;
-    double b = p2->posx - p0->posx;
-    double c = p1->posy - p0->posy;
-    double d = p2->posy - p0->posy;
+    double a = p2->posx - p0->posx;
+    double b = p1->posx - p0->posx;
+    double c = p2->posy - p0->posy;
+    double d = p1->posy - p0->posy;
 
     return (a*d) - (b*c);
 }
@@ -131,7 +131,7 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point* ref) {
         tab_pts[i].dist = distance(pMin, &tab_pts[i]);
 
         // Calcul de l'angle polaire relatif au point minimal et ref
-        tab_pts[i].rad = coord_polaire(pMin, &tab_pts[i], ref);
+        tab_pts[i].rad = coord_polaire(pMin, ref, &tab_pts[i]);
     }
 }
 

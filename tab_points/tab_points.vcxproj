@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\affichage.h" />
+    <ClInclude Include="..\PILESLIB.H" />
     <ClInclude Include="..\tab_points.h" />
     <ClInclude Include="..\WINBGIM.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\affichage.cpp" />
     <ClCompile Include="..\main_TP1.cpp" />
+    <ClCompile Include="..\PILESLIB.CPP" />
     <ClCompile Include="..\tab_points.cpp" />
     <ClCompile Include="..\WINBGIM.cpp" />
   </ItemGroup>

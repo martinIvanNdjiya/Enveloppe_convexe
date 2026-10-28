@@ -8,6 +8,7 @@
 #include<math.h>
 #include<time.h>
 
+#pragma once
 /*=========================================================*/
 /*                  LES CONSTANTES                         */
 /*=========================================================*/
@@ -19,12 +20,6 @@ typedef struct {
 } t_point;
 
 typedef t_point t_element; //Points d'un autre type 
-
-typedef struct {
-	t_element* items;	  //tableau dynamique des éléments de la pile
-	int sommet;			  //position du sommet (top) de la pile, sera == -1 lorsque vide 
-	int taille;			  //taille maximale du tableau dynamique des éléments
-} t_pile;
 
 /*=========================================================*/
 /*============== DECLARATION DES FONCTIONS ================*/
