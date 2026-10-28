@@ -1,15 +1,15 @@
 /********************************************************************************/
 /* Tests_pile.cpp: programme de tests unitaires de la pile de points (t_point). */
-/* Auteur: Eric Thé, A26.                                                       */
+/* Auteur: Eric Thï¿½, A26.                                                       */
 /********************************************************************************/
-//Permet de désactiver certains warnings du compilateur 
+//Permet de dï¿½sactiver certains warnings du compilateur 
 #define _CRT_SECURE_NO_WARNINGS 
-// Librairies usuelles à inclure 
+// Librairies usuelles ï¿½ inclure 
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>   //pour faire des tests unitaires avec "assert()"
 #include<time.h>
-#include "t_pile.h"
+#include "PILESLIB.h"
 
 /*=========================================================*/
 /*                  LES CONSTANTES                         */
@@ -21,12 +21,12 @@
 /********************************************************************************/
 int main(void) {
 	t_point pt = {0}, ptA, ptB;    //variables pour ajouter/retirer des points de la pile
-	t_pile  pile;				   //la pile de points à tester
+	t_pile  pile;				   //la pile de points ï¿½ tester
 
-	pile = init_pile(TAILLE);	   //créer une pile de 10 pts.
+	pile = init_pile(TAILLE);	   //crï¿½er une pile de 10 pts.
 
 	//remplir la pile avec les points (1, -1), (2, -2), (3, -3), etc.
-	//jusqu'à ce qu'elle soit pleine
+	//jusqu'ï¿½ ce qu'elle soit pleine
 	while (get_nb_elements(&pile) < TAILLE) {
 		pt.posx += 1;      //1, 2, 3, 4, etc.
 		pt.posy -= 1;	   //-1, -2, -3, -4, etc.
@@ -82,7 +82,7 @@ int main(void) {
 		 printf("Le point suivant du sommet est (%d, %d)\n\n", ptB.posx, ptB.posy);
 	else printf("Pas assez d'elements dans la pile!\n");
 
-	//on retire (pop) de dernier élément de la pile
+	//on retire (pop) de dernier ï¿½lï¿½ment de la pile
 	pop(&pile, &pt);
 	printf("Le point (%2d, %3d) a ete retire de la pile\n", pt.posx, pt.posy);
 	//valider le nb. de points (= 0) et la position du sommet (= -1)
@@ -94,9 +94,9 @@ int main(void) {
 		 printf("Le point qui se trouve au sommet est (%d, %d)\n", ptA.posx, ptA.posy);
 	else printf("La pile est vide!\n");
 
-	//libérer le tableau dynamique de la pile 
+	//libï¿½rer le tableau dynamique de la pile 
 	liberer_pile(&pile);
-	assert(pile.items == NULL);   //le pointeur-tableau doit avoir été remis à NULL
+	assert(pile.items == NULL);   //le pointeur-tableau doit avoir ï¿½tï¿½ remis ï¿½ NULL
 
 	printf("\nTous les tests ont reussi!\n");
 	return EXIT_SUCCESS;

@@ -39,7 +39,7 @@ void push(t_pile *, t_element);
 void pop(t_pile *, t_element *);
 
 //focntion pour récupérer le nb d'éléments
-int get_nb_element(const t_pile * pile);
+int get_nb_elements(const t_pile * pile);
 
 //fonction pour récupérer le sommet
 int get_sommet(const t_pile * pile, t_element * elem);

@@ -65,7 +65,7 @@ void pop(t_pile *p, t_element *el) {
   }
 }
 
-int get_nb_element(const t_pile * pile) {
+int get_nb_elements(const t_pile * pile) {
   return pile->sommet + 1;
 }
 
