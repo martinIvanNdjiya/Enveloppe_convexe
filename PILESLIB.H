@@ -1,6 +1,7 @@
 //Permet de d�sactiver certains warnings du compilateur 
 #define _CRT_SECURE_NO_WARNINGS 
 #define _USE_MATH_DEFINES
+#pragma once
 
 // Librairies usuelles � inclure 
 #include<stdio.h>
@@ -14,8 +15,8 @@
 typedef t_point t_element;
 
 typedef struct {
-   t_element * items;	//tableau dynamique des éléments de la pile
-   int sommet;			  //position du sommet (top) de la pile, sera == -1 lorsque vide 
+	t_element * items;	//tableau dynamique des éléments de la pile
+	int sommet;			  //position du sommet (top) de la pile, sera == -1 lorsque vide 
 	int taille;			  //taille maximale du tableau dynamique des éléments
 } t_pile;
 

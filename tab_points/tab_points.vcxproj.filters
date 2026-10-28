@@ -24,7 +24,7 @@
     <ClInclude Include="..\affichage.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="interactions.h">
+    <ClInclude Include="..\PILESLIB.H">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="..\WINBGIM.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="interactions.cpp">
+    <ClCompile Include="..\PILESLIB.CPP">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
