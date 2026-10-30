@@ -1,11 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define _USE_MATH_DEFINES
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
 #include "tab_points.h"
+#pragma once
 
 /** DEMANDER_MODE
  * On affiche un menu qui propose les deux choix de modes d’exécution;

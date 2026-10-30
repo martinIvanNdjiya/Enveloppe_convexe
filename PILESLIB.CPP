@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "pileslib.h"
+#pragma once
 
 //proc�dure pour initializer une pile, la pile sera vide 
 t_pile init_pile(int taille){ 

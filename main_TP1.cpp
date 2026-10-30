@@ -2,8 +2,11 @@
 #include "affichage.h"
 #include "PILESLIB.H"
 #include <assert.h>
+#include "interactions.h"
 
 #define TAILLE  20 
+#define MODE_ALEA 1
+#define MODE_FICHIER 2
 
 void afficher_pts_en_ordre(t_point tab_pts[], int taille, int ligne);
 int  algo_Graham_scan(t_point tab_pts[], int nb_pts, t_pile *pile_Graham);
@@ -15,31 +18,42 @@ int main(void)
     t_point* tab_pts = NULL;
     t_point h_ref;
     t_pile pile_Graham;
+
+    int nb_pts = 0;
     int pos_pt_min;
+    int mode;
 
-    tab_pts = (t_point*)malloc(TAILLE * sizeof(t_point));
-    assert(tab_pts != NULL);
-   
-    srand(time(NULL));
+    mode = demander_mode();
+    // MODE_ALEA
+    if (mode == MODE_ALEA) {
+        nb_pts = TAILLE;
+        tab_pts = (t_point*)malloc(nb_pts * sizeof(t_point));
+        assert(tab_pts != NULL);
+        init_tab_alea(tab_pts, nb_pts, MAX_X, MAX_Y);
+    }
+    // MODE_FICHIER
+    else {
+        FILE* fichier = choisir_fichier();
+        tab_pts = lire_points(fichier, &nb_pts);
+        assert(tab_pts != NULL);
+    }
 
-    init_tab_alea(tab_pts, TAILLE, MAX_X, MAX_Y);
-
-    pos_pt_min = trouver_pt_minimal(tab_pts, TAILLE);
+    pos_pt_min = trouver_pt_minimal(tab_pts, nb_pts);
     h_ref = placer_pt_reference(tab_pts, pos_pt_min);
 
-    calcul_coord_polaires(tab_pts, TAILLE, &h_ref);
+    calcul_coord_polaires(tab_pts, nb_pts, &h_ref);
     // trier_pts() recalcule les coordonnées polaires;
     // garde un seul des deux appels
-    trier_pts(tab_pts, TAILLE);
+    trier_pts(tab_pts, nb_pts);
 
     mode_graphique();
-    afficher_pts_en_ordre(tab_pts, TAILLE, 1);
+    afficher_pts_en_ordre(tab_pts, nb_pts, 1);
     pause_ecran();
     
     nettoyer_ecran();                              
-    afficher_pts_en_ordre(tab_pts, TAILLE, 0);   
-    pile_Graham = init_pile(TAILLE);               
-    algo_Graham_scan(tab_pts, TAILLE, &pile_Graham); 
+    afficher_pts_en_ordre(tab_pts, nb_pts, 0);   
+    pile_Graham = init_pile(nb_pts);               
+    algo_Graham_scan(tab_pts, nb_pts, &pile_Graham); 
     afficher_segments(&pile_Graham);               
     pause_ecran();
 
