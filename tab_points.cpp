@@ -32,7 +32,7 @@ int verifier_doublons(const t_point tab_pts[], int taille_actuelle, int y_aleato
 double distance(t_point * pA, t_point * pB){
     double diffx = pB->posx - pA->posx;
     double diffy = pB->posy - pA->posy;
-    return sqrt (diffx *  diffx) + (diffy * diffy);
+    return sqrt((diffx *  diffx) + (diffy * diffy));
 }
 
 /* PROD_VECTORIEL */
@@ -130,7 +130,7 @@ void calcul_coord_polaires(t_point tab_pts[], int taille, t_point* ref) {
         tab_pts[i].dist = distance(pMin, &tab_pts[i]);
 
         // Calcul de l'angle polaire relatif au point minimal et ref
-        tab_pts[i].rad = coord_polaire(pMin, ref, &tab_pts[i]);
+        tab_pts[i].rad = coord_polaire(pMin, &tab_pts[i], ref);
     }
 }
 
