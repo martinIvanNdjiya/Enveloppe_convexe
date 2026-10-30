@@ -33,7 +33,7 @@ int demander_mode(void) {
 /* CHOISIR_FICHIER */
 FILE* choisir_fichier(void) {
     char nom[100];      // Tableau de caractères pour stocker le nom du fichier
-    FILE *fentree = NULL;      // Pointeur de fichier correct (avec l'étoile)
+    FILE *fentree = NULL;  
 
     do {
         printf("\nVeuillez entrer le nom du fichier texte des points : ");
