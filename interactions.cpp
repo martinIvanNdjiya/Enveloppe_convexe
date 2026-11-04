@@ -1,18 +1,3 @@
-/************************************************************************************
-Par    : Martin Ivan Ndjiya et Judith Andrasko
-Date   : Octobre 2026
-
-Ce module implémente les fonctions d'interaction avec l'utilisateur et de gestion
-des entrées/sorties (choix du mode d'exécution, sélection et lecture d'un fichier
-de points pour l'algorithme de l'enveloppe convexe). 
-
-On y retrouve les sous-programmes suivants :
-- demander_mode   : Permet à l'utilisateur de choisir entre le mode aléatoire 
-                    ou le mode fichier.
-- choisir_fichier: Demande et ouvre un fichier texte en lecture de manière sécurisée.
-- lire_points    : Lit le nombre de points, alloue dynamiquement 
-                   le tableau et charge les coordonnées.
-************************************************************************************/
 #define _CRT_SECURE_NO_WARNINGS 
 
 #include <stdio.h>
@@ -22,39 +7,37 @@ On y retrouve les sous-programmes suivants :
 #include "tab_points.h"
 
 #define FFLUSH()   while (getchar() != '\n')
-/*==================================================================================*/
+
 /* DEMANDER_MODE */
 int demander_mode(void) {
-    char rep;
+    char reponse;
     int r = 1; // Initialisation au mode aleatoire
 
     printf("\n=================================================================");
     printf("\n==================== MODE D'EXECUTION ===========================");
-
-    // Boucle de validation pour s'assurer d'obtenir un choix valide ('1' ou '2')
     do {
-        printf("\nVeuillez choisir entre ces modes ('1' ou '2'): ");
-        printf("\n\t 1) Mode aleatoire a 20 points;\n\t 2) A partir d'un fichier texte.\n");
-        scanf("%c", &rep);
+        printf("\nVeuillez choisir entre ces modes ('1' ou '2' ou '3'): ");
+        printf("\n\t 1) Mode aleatoire a 20 points;\n\t 2) À partir d'un fichier texte.\n\t 3) Mode simulation\n");
+        scanf("%c", &reponse);
 
         FFLUSH();
-    } while (!((rep == '1') || (rep == '2')));
+    } while (!((reponse == '1') || (reponse == '2') || (reponse == '3')));
 
-    // Si l'utilisateur choisit '2', on bascule vers le mode fichier
-    if (rep == '2') {
+    if (reponse == '2') {
         r = 2;
+    }
+    else if (reponse == '3') {
+        r = 3;
     }
 
     return r;
 }
 
-/*==================================================================================*/
 /* CHOISIR_FICHIER */
 FILE* choisir_fichier(void) {
-    char nom[100];         // Tableau de caractères pour stocker le nom du fichier
-    FILE *fentree = NULL;  // Pointeur vers le fichier à ouvrir 
+    char nom[100];      // Tableau de caractères pour stocker le nom du fichier
+    FILE *fentree = NULL;  
 
-    // Boucle de saisie tant que l'ouverture du fichier échoue
     do {
         printf("\nVeuillez entrer le nom du fichier texte des points : ");
         scanf("%s", nom);
@@ -62,7 +45,6 @@ FILE* choisir_fichier(void) {
 
         fentree = fopen(nom, "r");
 
-        // Affichage d'une erreur si le fichier est introuvable ou illisible
         if (fentree == NULL) {
             perror("Detail de l'erreur fopen: ");
             printf("\nERREUR : Lecture du fichier impossible. Veuillez reessayer.\n");
@@ -73,7 +55,6 @@ FILE* choisir_fichier(void) {
     return fentree;
 }
 
-/*==================================================================================*/
 /* LIRE_POINTS */
 t_point* lire_points(FILE* fichier, int* nb_pts) {
     // Lire le nombre de points et le mettre dans *nb_pts
@@ -89,7 +70,7 @@ t_point* lire_points(FILE* fichier, int* nb_pts) {
 
     // Lire les coordonnées ligne par ligne et initialiser .position à -1
     for (int i = 0; i < *nb_pts; i++) {
-        fscanf(fichier, "%d %d", &tab_pts[i].posx, &tab_pts[i].posy); 
+        fscanf(fichier, "%d %d", &tab_pts[i].posx, &tab_pts[i].posy); // %d car posx et posy sont des int
         tab_pts[i].position = -1;
     }
 
