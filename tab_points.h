@@ -1,17 +1,36 @@
-//Permet de d�sactiver certains warnings du compilateur 
+/************************************************************************************
+Par    : Martin Ivan Ndjiya et Judith Andrasko
+Date   : Octobre 2026
+
+Ce module implémente le type t_point ainsi que l'ensemble des sous-programmes
+nécessaires à la gestion, aux calculs géométriques et au tri des points
+pour l'algorithme de l'enveloppe convexe. On y retrouve les sous-programmes suivants :
+- swap                 : Échange la position de deux points dans le tableau.
+- verifier_doublons    : Vérifie si une coordonnée posy existe déjà pour éviter les doublons.
+- distance             : Calcule et retourne la distance Euclidienne entre deux points.
+- prod_vectoriel       : Calcule le produit vectoriel de deux vecteurs via un déterminant 2x2.
+- coord_polaire        : Calcule l'angle polaire relatif à l'axe horizontal (gérant angles aigus et obtus).
+- alea                 : Retourne un entier aléatoire compris dans l'intervalle fermé [min, max].
+- init_tab_alea        : Initialise les points avec des coordonnées aléatoires et un y unique.
+- trouver_pt_minimal   : Trouve l'indice du point minimal (plus petit posy, puis plus petit posx).
+- placer_pt_reference  : Place le point minimal en position [0] et génère le point de référence.
+- calcul_coord_polaires: Calcule la distance et l'angle polaire de chaque point par rapport au minimum.
+- trier_pts            : Trie les points par angle polaire croissant et par distance en cas d'égalité.
+************************************************************************************/
+//Permet de desactiver certains warnings du compilateur 
 #define _CRT_SECURE_NO_WARNINGS 
 #define _USE_MATH_DEFINES
 
-// Librairies usuelles � inclure 
+// Librairies usuelles a inclure 
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
 #include<time.h>
 
 #pragma once
-/*=========================================================*/
-/*                  LES CONSTANTES                         */
-/*=========================================================*/
+/*==================================================================================*/
+/*                                   LES CONSTANTES                                 */
+/*==================================================================================*/
 typedef struct {        
 	int posx, posy;   //coordonnées x, y du point dans le plan
     double rad;       //angle polaire relatif au point minimal
@@ -21,8 +40,8 @@ typedef struct {
 
 typedef t_point t_element; //Points d'un autre type 
 
-/*=========================================================*/
-/*============== DECLARATION DES FONCTIONS ================*/
+/*==================================================================================*/
+/*=========================== DECLARATION DES FONCTIONS ============================*/
 
 /** SWAP 
 * Échange la position de deux points dans le tableau.
@@ -33,6 +52,7 @@ typedef t_point t_element; //Points d'un autre type
  */
 void swap(t_point* a, t_point* b);
 
+/*==================================================================================*/
 /** VERIFIER_DOUBLONS
 * Vérifie si une coordonnée posy existe déjà dans le tableau de points.
 *
@@ -43,6 +63,7 @@ void swap(t_point* a, t_point* b);
  */
 int verifier_doublons(const t_point tab_pts[], int taille_actuelle, int y_aleatoire);
 
+/*==================================================================================*/
 /** DISTANCE
 * Calcule et retourne la distance Euclidienne entre les points pA et pB
 * en deux dimensions, pour deux points A(x1, y1) et B(x2, y2).
@@ -53,6 +74,7 @@ int verifier_doublons(const t_point tab_pts[], int taille_actuelle, int y_aleato
  */
 double distance(t_point * pA, t_point * pB);
 
+/*==================================================================================*/
 /** PROD_VECTORIEL
 * Retourne le produit vectoriel des deux vecteurs formés par v1 = p1 - p0
 * et v2 = p2 - p0, calculé via le déterminant d'une matrice 2 x 2.
@@ -64,6 +86,7 @@ double distance(t_point * pA, t_point * pB);
  */
 double prod_vectoriel(t_point * p0, t_point * p1, t_point * p2);
 
+/*==================================================================================*/
 /** COORD_POLAIRE
 * Reçoit deux points pA et pB ainsi qu'un point de référence gauche-droite h_ref.
 * Calcule et retourne l'angle polaire du vecteur pA - pB relatif à l'axe horizontal,
@@ -76,6 +99,7 @@ double prod_vectoriel(t_point * p0, t_point * p1, t_point * p2);
  */
 double coord_polaire(t_point * pA, t_point * pB, t_point * h_ref);
 
+/*==================================================================================*/
 /** ALEA
 * Retourne un entier aléatoire compris dans l'intervalle fermé [min, max].
 *
@@ -85,6 +109,7 @@ double coord_polaire(t_point * pA, t_point * pB, t_point * h_ref);
  */
 static int alea(int min, int max);   //privée!!
 
+/*==================================================================================*/
 /** INIT_TAB_ALEA
 * Initialise tous les points du tableau avec des coordonnées aléatoires
 * comprises entre [1, maxx] pour le X et [1, maxy] pour le Y,
@@ -98,6 +123,7 @@ static int alea(int min, int max);   //privée!!
  */
 void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy);
 
+/*==================================================================================*/
 /** TROUVER_PT_MINIMAL
 * Trouve et retourne l'indice du point minimal dans le tableau tab_pts[].
 * Le point minimal est défini par la plus petite coordonnée posy. En cas
@@ -109,10 +135,13 @@ void init_tab_alea(t_point tab_pts[], int taille, int maxx, int maxy);
  */
 int trouver_pt_minimal(const t_point tab_pts[], int taille);
 
+/*==================================================================================*/
 /** PLACER_PT_REFERENCE
-* Permute le point minimal (situé à l'indice pos_min) avec le point à l'indice [0] du tableau.
-* Crée et retourne un nouveau point de référence horizontal dont la coordonnée posx est
-* identique à celle du nouveau point [0] et dont la coordonnée posy est fixée à 800.
+* Permute le point minimal (situé à l'indice pos_min) avec le point 
+* à l'indice [0] du tableau.
+* Crée et retourne un nouveau point de référence horizontal dont la 
+* coordonnée posx est identique à celle du nouveau point [0] et 
+* dont la coordonnée posy est fixée à 800.
 *
 * PARAMETRES: tab_pts[] ---> Le tableau de points à modifier (t_point [])
 *             pos_min    ---> L'indice du point minimal trouvé précédemment (int)
@@ -120,6 +149,7 @@ int trouver_pt_minimal(const t_point tab_pts[], int taille);
  */
 t_point placer_pt_reference(t_point tab_pts[], int pos_min);
 
+/*==================================================================================*/
 /** CALCUL_COORD_POLAIRES
 * Calcule pour chaque point du tableau (à partir du deuxième, indice 1)
 * son angle polaire (.rad) par rapport au point minimal (case [0])
@@ -132,10 +162,12 @@ t_point placer_pt_reference(t_point tab_pts[], int pos_min);
  */
 void calcul_coord_polaires(t_point tab_pts[], int taille, t_point * ref);
 
+/*==================================================================================*/
 /** TRIER_PTS
 * Trie les points du tableau en ordre croissant de leurs angles polaires (.rad),
 * en laissant obligatoirement le point minimal à la case [0].
-* En cas d'égalité d'angle, on place le point avec la plus courte distance (.dist) en premier.
+* En cas d'égalité d'angle, on place le point avec la 
+* plus courte distance (.dist) en premier.
 *
 * PARAMETRES: tab_pts[] ---> Le tableau de points à trier (t_point [])
 *             taille     ---> Le nombre d'éléments dans le tableau (int)
