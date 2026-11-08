@@ -20,8 +20,8 @@ typedef struct {
 	int taille;			  //taille maximale du tableau dynamique des éléments
 } t_pile;
 
-//proc�dure pour initialiser une pile, la pile sera vide apr�s un appel
-//de cette proc�dure. Peut aussi �tre utilis�e pour vider une pile.
+/*Proc�dure pour initialiser une pile, la pile sera vide apr�s un appel
+	de cette proc�dure. Peut aussi �tre utilis�e pour vider une pile. */
 t_pile init_pile(int taille);
 
 //fonction pour v�rifier si une pile est pleine

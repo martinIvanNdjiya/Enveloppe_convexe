@@ -70,7 +70,7 @@ t_point* lire_points(FILE* fichier, int* nb_pts) {
 
     // Lire les coordonnées ligne par ligne et initialiser .position à -1
     for (int i = 0; i < *nb_pts; i++) {
-        fscanf(fichier, "%d %d", &tab_pts[i].posx, &tab_pts[i].posy); // %d car posx et posy sont des int
+        fscanf(fichier, "%d %d", &tab_pts[i].posx, &tab_pts[i].posy); 
         tab_pts[i].position = -1;
     }
 
