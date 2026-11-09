@@ -1,13 +1,30 @@
+/************************************************************************************
+Par    : Martin Ivan Ndjiya et Judith Andrasko
+Date   : 10 novembre 2026 
+
+Ce module implémente les fonctions d'interaction avec l'utilisateur et de lecture des
+données nécessaires pour obtenir les points de l'algorithme de l'enveloppe convexe.
+On y retrouve les sous-programmes suivants :
+- demander_mode   : Demande à l'utilisateur le mode d'exécution ('1' aléatoire à 20 points,
+                    '2' à partir d'un fichier texte, '3' simulation) et retourne son choix.
+- choisir_fichier : Demande le nom d'un fichier texte de points et l'ouvre en lecture.
+                    Répète la demande tant que l'ouverture échoue.
+- lire_points     : Lit le nombre de points puis leurs coordonnées (posx, posy) dans le
+                    fichier, les stocke dans un tableau alloué dynamiquement (position
+                    initialisée à -1) et ferme le fichier.
+************************************************************************************/
+
+
+//Permet de désactiver certains warnings du compilateur
 #define _CRT_SECURE_NO_WARNINGS 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include "tab_points.h"
+#include <stdio.h>       // Entrées/sorties standard (printf, scanf, fopen, perror, getchar)
+#include "tab_points.h"  // Type t_point utilisé pour le tableau de points lu dans le fichier
 
+// Vide le tampon du clavier en lisant les caractères jusqu'à la fin de la ligne.
 #define FFLUSH()   while (getchar() != '\n')
 
+/*==================================================================================*/
 /* DEMANDER_MODE */
 int demander_mode(void) {
     char reponse;
@@ -33,6 +50,7 @@ int demander_mode(void) {
     return r;
 }
 
+/*==================================================================================*/
 /* CHOISIR_FICHIER */
 FILE* choisir_fichier(void) {
     char nom[100];      // Tableau de caractères pour stocker le nom du fichier
@@ -55,6 +73,7 @@ FILE* choisir_fichier(void) {
     return fentree;
 }
 
+/*==================================================================================*/
 /* LIRE_POINTS */
 t_point* lire_points(FILE* fichier, int* nb_pts) {
     // Lire le nombre de points et le mettre dans *nb_pts

@@ -1,21 +1,24 @@
-//Permet de d�sactiver certains warnings du compilateur 
-#define _CRT_SECURE_NO_WARNINGS 
-#define _USE_MATH_DEFINES
+// Évite d'inclure ce fichier d'en-tête plus d'une fois lors de la compilation
 #pragma once
 
-// Librairies usuelles � inclure 
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-#include<time.h>
+//Permet de désactiver certains warnings du compilateur
+#define _CRT_SECURE_NO_WARNINGS 
 
-#include "tab_points.h"
+// Active les constantes mathématiques non standard de <math.h> 
+#define _USE_MATH_DEFINES
+
+#include<stdio.h>    // Entrées/sorties standard 
+#include<stdlib.h>   // Allocation dynamique et nombres aléatoires 
+#include<math.h>     // Fonctions mathématiques 
+#include<time.h>     // Fonctions liées au temps 
+
+#include "tab_points.h"  // Type t_point, utilisé pour définir le type t_element de la pile
 
 //changer cette d�claration pour obtenir une pile pour un autre type
 typedef t_point t_element;
 
 typedef struct {
-	t_element * items;	//tableau dynamique des éléments de la pile
+	t_element * items;	  //tableau dynamique des éléments de la pile
 	int sommet;			  //position du sommet (top) de la pile, sera == -1 lorsque vide 
 	int taille;			  //taille maximale du tableau dynamique des éléments
 } t_pile;

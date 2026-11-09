@@ -1,14 +1,37 @@
-#include "tab_points.h"
-#include "affichage.h"
-#include "PILESLIB.H"
-#include <assert.h>
-#include "interactions.h"
+/************************************************************************************
+Par    : Martin Ivan Ndjiya et Judith Andrasko
+Date   : 10 novembre 2026
 
-#define TAILLE  20 
-#define MODE_ALEA 1
-#define MODE_FICHIER 2
-#define MODE_SIMULATION 3
-#define NB_ESSAIS 10000
+Ce module contient le programme principal et l'algorithme du balayage de Graham qui
+permet de trouver l'enveloppe convexe d'un ensemble de points. Selon le mode choisi,
+les points sont générés aléatoirement, lus dans un fichier texte, ou le programme
+exécute une simulation statistique sans affichage.
+On y retrouve les sous-programmes suivants :
+- afficher_pts_en_ordre : Dessine les points triés avec leur numéro de position et,
+                          au besoin, les vecteurs polaires depuis le point de référence.
+- algo_Graham_scan      : Applique l'algorithme de Graham sur des points triés par angle
+                          polaire et conserve les points de l'enveloppe dans une pile.
+                          Retourne le nombre de points de l'enveloppe.
+- afficher_segments     : Affiche le nombre et les coordonnées des points de l'enveloppe
+                          puis dessine les segments qui la ferment (vide la pile).
+- simulation_moyenne    : Calcule le nombre moyen de points dans l'enveloppe convexe
+                          pour un nombre d'essais de tableaux de points aléatoires.
+- main                  : Gère les trois modes d'exécution (aléatoire, fichier,
+                          simulation), prépare et trie les points, puis affiche
+                          l'enveloppe convexe.
+************************************************************************************/
+
+#include "tab_points.h"     // Type t_point et prototypes des fonctions de ce module
+#include "affichage.h"      // Module d'affichage graphique 
+#include "PILESLIB.H"       // Type t_pile et opérations de la pile 
+#include <assert.h>         // Macro assert() pour valider les allocations et l'ouverture de fichiers
+#include "interactions.h"   // Fonctions de saisie 
+
+#define TAILLE  20          // Nombre de points générés en mode aléatoire
+#define MODE_ALEA 1         // Mode 1 : points générés aléatoirement
+#define MODE_FICHIER 2      // Mode 2 : points lus à partir d'un fichier texte
+#define MODE_SIMULATION 3   // Mode 3 : simulation statistique sans affichage graphique
+#define NB_ESSAIS 10000     // Nombre d'essais par taille de tableau en mode simulation
 
 /******************************************************************************/
 /*

@@ -1,11 +1,15 @@
+// Évite d'inclure ce fichier d'en-tête plus d'une fois lors de la compilation
+#pragma once
+
+//Permet de désactiver certains warnings du compilateur
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-#include "tab_points.h"
-#pragma once
+#include<stdio.h>    // Entrées/sorties standard 
+#include<stdlib.h>   // Allocation dynamique et nombres aléatoires 
+#include<math.h>     // Fonctions mathématiques 
+#include<time.h>     // Fonctions liées au temps 
+
+#include "tab_points.h"  // Type t_point utilisé dans le prototype de lire_points
 
 /** DEMANDER_MODE
  * On affiche un menu qui propose les deux choix de modes d’exécution;

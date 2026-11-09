@@ -19,13 +19,14 @@ pour l'algorithme de l'enveloppe convexe. On y retrouve les sous-programmes suiv
 ************************************************************************************/
 //Permet de desactiver certains warnings du compilateur 
 #define _CRT_SECURE_NO_WARNINGS 
+
+// Active les constantes mathématiques non standard de <math.h> 
 #define _USE_MATH_DEFINES
 
-// Librairies usuelles a inclure 
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-#include<time.h>
+#include<stdio.h>    // Entrées/sorties standard 
+#include<stdlib.h>   // Allocation dynamique et nombres aléatoires 
+#include<math.h>     // Fonctions mathématiques 
+#include<time.h>     // Fonctions liées au temps 
 
 #pragma once
 /*==================================================================================*/

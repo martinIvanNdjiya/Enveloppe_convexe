@@ -18,14 +18,16 @@ On y retrouve les sous-programmes suivants :
 - trier_pts            : Trie les points en ordre croissant d'angle polaire et de distance.
 ************************************************************************************/
 
+//Permet de désactiver certains warnings du compilateur
 #define _CRT_SECURE_NO_WARNINGS 
+
+// Active les constantes mathématiques non standard de <math.h> (ex. M_PI)
 #define _USE_MATH_DEFINES
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include "tab_points.h"
-#include "affichage.h"
+
+#include <stdlib.h>     // Allocation dynamique, nombres aléatoires (malloc, free, rand)
+#include <math.h>       // Fonctions mathématiques (sqrt, asin) et constante M_PI
+#include "tab_points.h" // Type t_point et prototypes des fonctions de ce module
+#include "affichage.h"  // Module d'affichage graphique des points et des lignes
 
 /*==================================================================================*/
 /*================================= FONCTIONS ======================================*/

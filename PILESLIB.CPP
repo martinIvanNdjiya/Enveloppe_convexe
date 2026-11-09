@@ -1,9 +1,35 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include "pileslib.h"
-#pragma once
+/************************************************************************************
+Par    : Martin Ivan Ndjiya et Judith Andrasko
+Date   : 10 novembre 2026
+pileslib
+Ce module implémente une pile dynamique de points (t_pile) utilisée par l'algorithme
+de Graham pour conserver les points de l'enveloppe convexe. Les éléments sont stockés
+dans un tableau alloué dynamiquement, dont la taille maximale est fixée à la création.
+On y retrouve les sous-programmes suivants :
+- init_pile       : Crée une pile vide pouvant contenir au maximum 'taille' éléments.
+- liberer_pile    : Libère le tableau dynamique de la pile et la remet à zéro.
+- vide            : Vérifie si la pile est vide.
+- pleine          : Vérifie si la pile est pleine.
+- push            : Empile un élément au sommet de la pile (erreur si pleine).
+- pop             : Dépile l'élément au sommet de la pile (erreur si vide).
+- get_nb_elements : Retourne le nombre d'éléments présents dans la pile.
+- get_sommet      : Copie l'élément au sommet sans le retirer de la pile.
+                    Retourne 1 en cas de succès, 0 si la pile est vide.
+- get_suiv_sommet : Copie l'élément situé juste sous le sommet sans modifier la pile.
+                    Retourne 1 en cas de succès, 0 s'il y a moins de deux éléments.
+************************************************************************************/
 
-//proc�dure pour initializer une pile, la pile sera vide 
+//Permet de désactiver certains warnings du compilateur
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>      // Entrées/sorties standard (printf pour les messages d'erreur)
+#include "pileslib.h"   // Type t_pile, t_element et prototypes des fonctions de la pile
+
+/*==================================================================================*/
+/*================================= FONCTIONS ======================================*/
+
+/*==================================================================================*/
+/* INIT_PILE */
 t_pile init_pile(int taille){ 
     t_pile pile;
     
@@ -22,8 +48,9 @@ t_pile init_pile(int taille){
     
     return pile; // Retourne une copie de la pile ainsi créée
 }
- 
-//fonction pour nettoyer une pile 
+
+/*==================================================================================*/
+/* LIBERER_PILE */
 void liberer_pile(t_pile * pile){
     if (pile == NULL) {
       exit(EXIT_FAILURE); 
@@ -35,16 +62,19 @@ void liberer_pile(t_pile * pile){
     pile->taille = 0;
 }
 
-//fonction pour v�rifier si une pile est vide
+/*==================================================================================*/
+/* VIDE */
 int vide(const t_pile *pile) {
   return (pile->sommet == -1); 
 }
 
-//fonction pour v�rifier si une pile est pleine
+/*==================================================================================*/
+/* PLEINE */
 int  pleine(const t_pile *pile)
 { return (pile->sommet == pile->taille-1); }
 
-//proc�dure pour ajouter un �l�ment de plus sur une pile
+/*==================================================================================*/
+/* PUSH */
 void push(t_pile *p, t_element el) { 
   if (pleine(p)) { 
     printf("ERREUR!!! Debordement de pile."); 
@@ -55,7 +85,8 @@ void push(t_pile *p, t_element el) {
   }
 }
 
-//proc�dure pour enlever un �l�ment du haut d'une pile
+/*==================================================================================*/
+/* POP */
 void pop(t_pile *p, t_element *el) { 
   if (vide(p)) { 
 	  printf("ERREUR!!! Pile vide."); 
@@ -66,10 +97,14 @@ void pop(t_pile *p, t_element *el) {
   }
 }
 
+/*==================================================================================*/
+/* GET_NB_ELEMENTS */
 int get_nb_elements(const t_pile * pile) {
   return pile->sommet + 1;
 }
 
+/*==================================================================================*/
+/* GET_SOMMET */
 int get_sommet(const t_pile * pile, t_element * elem) {
   if (vide(pile)) { 
     return 0;
@@ -80,6 +115,8 @@ int get_sommet(const t_pile * pile, t_element * elem) {
   }
 }
 
+/*==================================================================================*/
+/* GET_SUIV_SOMMET */
 int get_suiv_sommet(const t_pile * pile, t_element * elem) {
   if (pile->sommet < 1) {
     return 0;
