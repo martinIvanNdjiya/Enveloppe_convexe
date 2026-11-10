@@ -34,7 +34,7 @@ int demander_mode(void) {
     printf("\n==================== MODE D'EXECUTION ===========================");
     do {
         printf("\nVeuillez choisir entre ces modes ('1' ou '2' ou '3'): ");
-        printf("\n\t 1) Mode aleatoire a 20 points;\n\t 2) À partir d'un fichier texte.\n\t 3) Mode simulation\n");
+        printf("\n\t 1) Mode aleatoire a 20 points;\n\t 2) A partir d'un fichier texte.\n\t 3) Mode simulation\n");
         scanf("%c", &reponse);
 
         FFLUSH();
