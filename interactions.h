@@ -1,6 +1,6 @@
 /************************************************************************************
 Par    : Martin Ivan Ndjiya et Judith Andrasko
-Date   : Octobre 2026
+Date   : 11 novembre 2026
 
 Ce module implémente les déclarations des fonctions d'interaction avec l'utilisateur
 et de gestion des entrées/sorties pour l'algorithme de l'enveloppe convexe.
@@ -12,6 +12,7 @@ On y retrouve les sous-programmes suivants :
 - lire_points    : Lit le nombre de points, alloue dynamiquement 
 				   le tableau et charge les coordonnées.
 ************************************************************************************/
+
 // Évite d'inclure ce fichier d'en-tête plus d'une fois lors de la compilation
 #pragma once
 

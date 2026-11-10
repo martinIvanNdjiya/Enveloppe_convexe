@@ -1,3 +1,24 @@
+/************************************************************************************
+Par    : Martin Ivan Ndjiya et Judith Andrasko
+Date   : 11 novembre 2026
+
+Ce module implémente les déclarations d'une pile dynamique (LIFO) de points, utilisée
+par l'algorithme de l'enveloppe convexe pour mémoriser les points retenus au fil du
+parcours. La pile repose sur un tableau dynamique d'éléments (t_element, ici un
+t_point) et un indice de sommet qui vaut -1 lorsque la pile est vide.
+On y retrouve les sous-programmes suivants :
+- init_pile        : Initialise une pile vide de la taille demandée
+                     (peut aussi servir à vider une pile).
+- pleine           : Vérifie si la pile est pleine.
+- vide             : Vérifie si la pile est vide.
+- liberer_pile     : Libère la mémoire allouée dynamiquement pour la pile.
+- push             : Ajoute un élément au sommet de la pile.
+- pop              : Retire l'élément au sommet de la pile et le retourne.
+- get_nb_elements  : Retourne le nombre d'éléments présents dans la pile.
+- get_sommet       : Récupère l'élément au sommet sans le retirer de la pile.
+- get_suiv_sommet  : Récupère l'élément situé juste sous le sommet sans le retirer.
+************************************************************************************/
+
 // Évite d'inclure ce fichier d'en-tête plus d'une fois lors de la compilation
 #pragma once
 

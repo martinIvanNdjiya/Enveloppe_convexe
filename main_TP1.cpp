@@ -1,6 +1,6 @@
 /************************************************************************************
 Par    : Martin Ivan Ndjiya et Judith Andrasko
-Date   : 10 novembre 2026
+Date   : 11 novembre 2026
 
 Ce module contient le programme principal et l'algorithme du balayage de Graham qui
 permet de trouver l'enveloppe convexe d'un ensemble de points. Selon le mode choisi,

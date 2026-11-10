@@ -1,6 +1,6 @@
 /************************************************************************************
 Par    : Martin Ivan Ndjiya et Judith Andrasko
-Date   : Octobre 2026
+Date   : 11 novembre 2026
 
 Ce module implémente le type t_point ainsi que l'ensemble des sous-programmes
 nécessaires à la gestion, aux calculs géométriques et au tri des points
@@ -17,6 +17,7 @@ pour l'algorithme de l'enveloppe convexe. On y retrouve les sous-programmes suiv
 - calcul_coord_polaires: Calcule la distance et l'angle polaire de chaque point par rapport au minimum.
 - trier_pts            : Trie les points par angle polaire croissant et par distance en cas d'égalité.
 ************************************************************************************/
+
 //Permet de desactiver certains warnings du compilateur 
 #define _CRT_SECURE_NO_WARNINGS 
 

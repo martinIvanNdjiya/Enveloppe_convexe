@@ -1,6 +1,6 @@
 /************************************************************************************
 Par    : Martin Ivan Ndjiya et Judith Andrasko
-Date   : Octobre 2026
+Date   : 11 novembre 2026
 
 Ce module implémente les fonctions de calcul géométrique, de génération aléatoire et
 de tri des points nécessaires pour l'algorithme de l'enveloppe convexe.

@@ -1,6 +1,6 @@
 /************************************************************************************
 Par    : Martin Ivan Ndjiya et Judith Andrasko
-Date   : 10 novembre 2026 
+Date   : 11 novembre 2026 
 
 Ce module implémente les fonctions d'interaction avec l'utilisateur et de lecture des
 données nécessaires pour obtenir les points de l'algorithme de l'enveloppe convexe.
@@ -13,7 +13,6 @@ On y retrouve les sous-programmes suivants :
                     fichier, les stocke dans un tableau alloué dynamiquement (position
                     initialisée à -1) et ferme le fichier.
 ************************************************************************************/
-
 
 //Permet de désactiver certains warnings du compilateur
 #define _CRT_SECURE_NO_WARNINGS 

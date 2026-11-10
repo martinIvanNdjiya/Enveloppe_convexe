@@ -1,7 +1,7 @@
 /************************************************************************************
 Par    : Martin Ivan Ndjiya et Judith Andrasko
-Date   : 10 novembre 2026
-pileslib
+Date   : 11 novembre 2026
+
 Ce module implémente une pile dynamique de points (t_pile) utilisée par l'algorithme
 de Graham pour conserver les points de l'enveloppe convexe. Les éléments sont stockés
 dans un tableau alloué dynamiquement, dont la taille maximale est fixée à la création.
