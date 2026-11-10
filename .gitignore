@@ -14,3 +14,4 @@ Release/
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+/tab_points/log_simulation.txt
